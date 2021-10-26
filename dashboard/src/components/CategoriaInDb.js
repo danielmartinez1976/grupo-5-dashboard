@@ -17,7 +17,7 @@ function CategoriInDb() {
 
     console.log(category)
 
-    return(
+    return (
         <div class="col-lg-6 mb-4">
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
