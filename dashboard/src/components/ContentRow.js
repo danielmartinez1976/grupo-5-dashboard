@@ -1,5 +1,9 @@
 import React from "react";
 import { useState, useEffect} from "react"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faClipboardList } from "@fortawesome/free-solid-svg-icons"
+import { faDollarSign } from "@fortawesome/free-solid-svg-icons"
+import { faUserCheck } from	"@fortawesome/free-solid-svg-icons"
 
 function ContentRow(){
 
@@ -67,8 +71,8 @@ function ContentRow(){
 											<div className="text-xs font-weight-bold text-primary text-uppercase mb-1"> Cantidad Total de productos </div>
 										<div className="h5 mb-0 font-weight-bold text-gray-800">{cantidadProd}</div>
 										</div>
-										<div className="col-auto">
-											<i className="fas fa-clipboard-list fa-2x text-gray-300"></i>
+										<div className="col-auto" style={{fontSize: 20}}>
+											<FontAwesomeIcon icon={faClipboardList} />
 										</div>
 									</div>
 								</div>
@@ -84,8 +88,8 @@ function ContentRow(){
 											<div className="text-xs font-weight-bold text-success text-uppercase mb-1"> Costo Total de Productos </div>
 											<div className="h5 mb-0 font-weight-bold text-gray-800">$ {sumaPrecios} </div>
 										</div>
-										<div className="col-auto">
-											<i className="fas fa-dollar-sign fa-2x text-gray-300"></i>
+										<div className="col-auto" style={{fontSize: 20}}>
+											<FontAwesomeIcon icon={faDollarSign} />
 										</div>
 									</div>
 								</div>
@@ -102,8 +106,8 @@ function ContentRow(){
 											</div>
 											<div className="h5 mb-0 font-weight-bold text-gray-800">{cantidadusuarios}</div>
 										</div>
-										<div className="col-auto">
-											<i className="fas fa-user-check fa-2x text-gray-300"></i>
+										<div className="col-auto" style={{fontSize: 20}}>
+											<FontAwesomeIcon icon={faUserCheck} />
 										</div>
 									</div>
 								</div>
