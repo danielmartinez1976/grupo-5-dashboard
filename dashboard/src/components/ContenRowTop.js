@@ -3,6 +3,7 @@ import React from "react";
 import CategoriInDb from "./CategoriaInDb";
 import LastProductInDb from "./LastProductInDb";
 import LastUserInDb from "./LastUserInDb";
+import ProductList from "./ProductList";
 import ContentRow from "./ContentRow";
 
 
@@ -18,10 +19,9 @@ function ContenRowTop(props) {
                     <LastProductInDb />
                     <LastUserInDb />
                     <CategoriInDb />
+                    <ProductList />
                 </div>
             </div>
-
-
 
 
 
