@@ -3,22 +3,58 @@ import { useState, useEffect} from "react"
 
 function ContentRow(){
 
-	const [productos, setProductos] = useState([])
+	const [cantidadProd, setCatantidadProd] = useState([])
 	useEffect(() => {
 		fetch("http://localhost:3001/producto/productosApi") // endPoint Api me trae productos
 			.then((respuestaApi) => {
 				return respuestaApi.json() // la respuesta que viene en el primer then es un json la transformo en un objeto con el .josn()
 			})
 			.then((productosApi) => {   // productosApi ya es la respuesta de la api pero convertida a objeto el nombre lo pongo yo
-				setProductos(productosApi) // actualizo el estado de productos pasandole el resultado a la variable productos
+				setCatantidadProd(productosApi.count) // actualizo el estado de productos pasandole el resultado a la variable productos
 			})
 	}, []) // estos dos corchetes son para que no se produzca un bucle infinito
+
+	const [cantidadusuarios, setUsuarios] = useState([])
+
+	useEffect(() => {
+		fetch("http://localhost:3001/user/usuariosApi")
+			.then((usuariosApi) => {
+				return usuariosApi.json()
+			})
+			.then((usuarios) => {
+				let cantidadusuarios = usuarios.count
+				setUsuarios(cantidadusuarios)
+			})
+	}, [])
+
+	console.log(cantidadusuarios)
+
+	const [sumaPrecios, setSumaPrecios] = useState([])
+
+	useEffect(() => {
+		fetch("http://localhost:3001/producto/productosApi")
+			.then((respuestaApi) => {
+				return respuestaApi.json()
+			})
+			.then((productosApi) => {
+				let products = productosApi.products
+				let preciosProd = products.map((prod) => {
+					return prod.precio
+				})
+				let preciosProdNumeros = preciosProd.map((precio) => {
+					return Number(precio)
+				})
+				let sumaPrecios = preciosProdNumeros.reduce((a, b) => a + b, 0)
+				setSumaPrecios(sumaPrecios)
+			})
+
+	}, [])
     return(
 
         <div class="container-fluid">
 
 					<div className="d-sm-flex align-items-center justify-content-between mb-4">
-						<h1 className="h3 mb-0 text-gray-800">App Dashboard</h1>
+						<h1 className="h3 mb-0 text-gray-800">  enRedArte  "Red de Arte Independiente"</h1>
 					</div>
 
                     <div className="row">
@@ -28,8 +64,8 @@ function ContentRow(){
 								<div className="card-body">
 									<div className="row no-gutters align-items-center">
 										<div className="col mr-2">
-											<div className="text-xs font-weight-bold text-primary text-uppercase mb-1"> Productos en Nuestra Base</div>
-										<div className="h5 mb-0 font-weight-bold text-gray-800">{productos.count}</div>
+											<div className="text-xs font-weight-bold text-primary text-uppercase mb-1"> Cantidad Total de productos </div>
+										<div className="h5 mb-0 font-weight-bold text-gray-800">{cantidadProd}</div>
 										</div>
 										<div className="col-auto">
 											<i className="fas fa-clipboard-list fa-2x text-gray-300"></i>
@@ -45,8 +81,8 @@ function ContentRow(){
 								<div className="card-body">
 									<div className="row no-gutters align-items-center">
 										<div className="col mr-2">
-											<div className="text-xs font-weight-bold text-success text-uppercase mb-1"> Costo Total de Productos en Base</div>
-											<div className="h5 mb-0 font-weight-bold text-gray-800">$546.456</div>
+											<div className="text-xs font-weight-bold text-success text-uppercase mb-1"> Costo Total de Productos </div>
+											<div className="h5 mb-0 font-weight-bold text-gray-800">$ {sumaPrecios} </div>
 										</div>
 										<div className="col-auto">
 											<i className="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -62,9 +98,9 @@ function ContentRow(){
 								<div className="card-body">
 									<div className="row no-gutters align-items-center">
 										<div className="col mr-2">
-											<div className="text-xs font-weight-bold text-warning text-uppercase mb-1">Cantidad de Usuarios en Base
+											<div className="text-xs font-weight-bold text-warning text-uppercase mb-1">Cantidad de Usuarios Registrados
 											</div>
-											<div className="h5 mb-0 font-weight-bold text-gray-800">38</div>
+											<div className="h5 mb-0 font-weight-bold text-gray-800">{cantidadusuarios}</div>
 										</div>
 										<div className="col-auto">
 											<i className="fas fa-user-check fa-2x text-gray-300"></i>

@@ -3,40 +3,36 @@ import { useState, useEffect } from "react"
 
 function CategoriInDb() {
 
-    const [categorias, setCategorias] = useState([])
-
+    const [category, setCategory] = useState([])
     useEffect(() => {
-        fetch("http://localhost:3001/producto/categoriasApi")
-            .then((categorias) => {
-                return categorias.json()
-            })
-            .then((categoriasApi) => {
-                setCategorias(categoriasApi)
-            })
-    }, [])
+      fetch("http://localhost:3001/producto/productosAPI")
+        .then((respuestaApi)=>{
+          return respuestaApi.json()
+        })
+        .then((category)=>{
+          let arrayCategory = category.countByCategory
+          setCategory(arrayCategory)
+        })
+    },[])
 
-    let nombreCategorias = categorias.map((categoria) => {
-        return categoria.categoria
-    })
-
-    console.log(nombreCategorias)
-
+    console.log(category)
 
     return(
         <div class="col-lg-6 mb-4">
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Categories in Data Base</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Cantidad de Productos por Categorias</h6>
                 </div>
                 <div class="card-body">
                     <div class="row">
                         {
-                            nombreCategorias.map((nombre) => {
+                            category.map((elemento) => {
                                 return (
                                     <div class="col-lg-6 mb-4">
                                         <div class="card bg-info text-white shadow">
                                             <div class="card-body">
-                                                {nombre} {" "} cantidad
+                                               categoria: {elemento.categoria} {" "} <br />
+                                               cantidad: {elemento.count}
                                             </div>
 
                                         </div>
