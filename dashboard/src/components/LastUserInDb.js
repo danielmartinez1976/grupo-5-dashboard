@@ -29,7 +29,7 @@ function LastUserInDb() {
                     <ul>
                         {data.map(item => (
                             <li key={item.id}>
-                                <p> {item.nombre} {item.apellido}</p>
+                                <p> {item.nombre} 555 {item.apellido}</p>
                             </li>
                         ))}
                     </ul>
