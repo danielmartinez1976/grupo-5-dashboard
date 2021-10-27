@@ -2,6 +2,9 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faChartLine } from "@fortawesome/free-solid-svg-icons"
 import { faTachometerAlt } from "@fortawesome/free-solid-svg-icons"
+import { faFolder } from "@fortawesome/free-solid-svg-icons"
+import { faChartArea } from "@fortawesome/free-solid-svg-icons"
+import { faTable } from	"@fortawesome/free-solid-svg-icons"
 
 function SideBar(){
     return(
@@ -21,7 +24,7 @@ function SideBar(){
 			<li className="nav-item active">
 				<a className="nav-link" href="/">
 							<FontAwesomeIcon icon={faTachometerAlt} />
-					<span>Dashboard</span></a>
+					<span> Dashboard</span></a>
 			</li>
 
 
@@ -33,23 +36,25 @@ function SideBar(){
 
 			<li className="nav-item">
 				<a className="nav-link collapsed" href="/">
-					<i className="fas fa-fw fa-folder"></i>
-					<span>Pages</span>
+					<FontAwesomeIcon icon={faFolder} />
+					<span> Pages</span>
 				</a>
 			</li>
 
 
 			<li className="nav-item">
 				<a className="nav-link" href="/">
-					<i className="fas fa-fw fa-chart-area"></i>
-					<span>Charts</span></a>
+					<FontAwesomeIcon icon={faChartArea} />
+					<span> Charts</span>
+				</a>
 			</li>
 
 
 			<li className="nav-item">
 				<a className="nav-link" href="/">
-					<i className="fas fa-fw fa-table"></i>
-					<span>Tables</span></a>
+					<FontAwesomeIcon icon={faTable} />
+					<span> Tables</span>
+				</a>
 			</li>
 
 
