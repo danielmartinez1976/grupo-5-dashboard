@@ -37,8 +37,6 @@ function LastUserInDb() {
                     <p>Nombre: {ultimoUsuario.nombre} </p>
                     <p>Apellido: {ultimoUsuario.apellido}</p>
                     <p>e-Mail: {ultimoUsuario.email}</p>
-                    <p>CP: {ultimoUsuario.codigo_postal}</p>
-                    <p>id: {ultimoUsuario.id}</p>
                 </div>
             </div>
         </div>
