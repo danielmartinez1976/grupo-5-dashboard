@@ -16,7 +16,7 @@ function LastProductInDb(){
                     return prod.id
                 })
                 let idMayor = Math.max(...idProductos)
-                let ultimoproducto = products.find(elemento => elemento.id = idMayor)
+                let ultimoproducto = products.find(elemento => elemento.id === idMayor)
 
                 setUltimoProducto(ultimoproducto)
             })
