@@ -14,16 +14,14 @@ function LastUserInDb() {
                 let users = usuariosApi.users
                 let idUsuarios = users.map((user) => {
                     return user.id
+
                 })
                 let idMayor = Math.max(...idUsuarios)
-                let ultimoUsuario = users.find(elemento => elemento.id = idMayor)
-                //let ultimoUsuario = users.filter(function (e) { return e.id = idMayor; })
-
+                let ultimoUsuario = users.find(elemento => elemento.id === idMayor)
+                console.log(ultimoUsuario);
                 setUltimoUser(ultimoUsuario)
             })
     }, [])
-
-    console.log(ultimoUsuario);
 
     return (
         <div className="col-lg-6 mb-4 ">
@@ -36,9 +34,10 @@ function LastUserInDb() {
                         <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" height="300" width="300" align="left" src={ImagenProducto} alt="ImagenProducto" />
                     </div>
                     <p></p>
-                    <p>Nombre: {ultimoUsuario.nombre} {""}  </p>
+                    <p>Nombre: {ultimoUsuario.nombre} </p>
                     <p>Apellido: {ultimoUsuario.apellido}</p>
                     <p>e-Mail: {ultimoUsuario.email}</p>
+                    <p>CP: {ultimoUsuario.codigo_postal}</p>
                     <p>id: {ultimoUsuario.id}</p>
                 </div>
             </div>

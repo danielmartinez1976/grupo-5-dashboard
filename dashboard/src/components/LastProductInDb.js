@@ -1,8 +1,8 @@
 import React from "react";
-import { useState, useEffect} from "react"
+import { useState, useEffect } from "react"
 
 
-function LastProductInDb(){
+function LastProductInDb() {
     const [ultimoProducto, setUltimoProducto] = useState([])
 
     useEffect(() => {
@@ -16,16 +16,16 @@ function LastProductInDb(){
                     return prod.id
                 })
                 let idMayor = Math.max(...idProductos)
-                let ultimoproducto = products.find(elemento => elemento.id = idMayor)
+                let ultimoproducto = products.find(elemento => elemento.id === idMayor)
 
                 setUltimoProducto(ultimoproducto)
             })
     }, [])
 
-console.log(ultimoProducto)
+    console.log(ultimoProducto)
 
 
-    return(
+    return (
         <div className="col-lg-6 mb-4 ">
             <div className="card shadow mb-4">
                 <div className="card-header py-3">
@@ -33,13 +33,13 @@ console.log(ultimoProducto)
                 </div>
                 <div className="card-body">
                     <div className="text-center">
-                        <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" height="300" width="300" align="left" src={"http://localhost:3001/images/"+ultimoProducto.nombre_imagen} alt="ImagenProducto"/>
+                        <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" height="300" width="300" align="left" src={"http://localhost:3001/images/" + ultimoProducto.nombre_imagen} alt="ImagenProducto" />
                     </div>
-                        <p></p>
-                        <p>Nombre del Producto : {ultimoProducto.titulo} {""}  </p>
-                        <p>Descripcion: {ultimoProducto.descripcion}</p>
-                        <p>Nombre del Artista  : {ultimoProducto.nombre_artista}</p>
-                        <p>Precio del Producto  : ${ultimoProducto.precio}</p>
+                    <p></p>
+                    <p>Nombre del Producto : {ultimoProducto.titulo} {""}  </p>
+                    <p>Descripcion: {ultimoProducto.descripcion}</p>
+                    <p>Nombre del Artista  : {ultimoProducto.nombre_artista}</p>
+                    <p>Precio del Producto  : ${ultimoProducto.precio}</p>
                 </div>
             </div>
         </div>
