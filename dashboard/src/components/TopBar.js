@@ -1,6 +1,10 @@
 import React from "react";
 
-import Imagen from "../assets/img/dummy-avatar.jpg";
+import Imagen from "../assets/img/enRedArte.jpg";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBell } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons"
+
 
 function TopBar(props){
     return (
@@ -11,7 +15,8 @@ function TopBar(props){
 
 					
 					<button id="sidebarToggleTop" className="btn btn-link d-md-none rounded-circle mr-3">
-						<i className="fa fa-bars"></i>
+					<i className="fa fa-bars"></i>
+						
 					</button>
 
 					
@@ -19,18 +24,16 @@ function TopBar(props){
 
 						
 						<li className="nav-item dropdown no-arrow mx-1">
-							<a className="nav-link dropdown-toggle" href="/" id="alertsDropdown">
-								<i className="fas fa-bell fa-fw"></i>
-								
+							<a className="nav-link dropdown-toggle" style={{fontSize: 20}} href="/" id="alertsDropdown">
+								< FontAwesomeIcon icon={faBell} />
 								<span className="badge badge-danger badge-counter">3+</span>
 							</a>
 						</li>
 
 						
 						<li className="nav-item dropdown no-arrow mx-1">
-							<a className="nav-link dropdown-toggle" href="/" id="messagesDropdown">
-								<i className="fas fa-envelope fa-fw"></i>
-								
+							<a className="nav-link dropdown-toggle" style={{fontSize: 20}} href="/" id="messagesDropdown">
+								< FontAwesomeIcon icon={faEnvelope} />
 								<span className="badge badge-danger badge-counter">7</span>
 							</a>
 						</li>
@@ -40,7 +43,7 @@ function TopBar(props){
 						
 						<li className="nav-item dropdown no-arrow">
 							<a className="nav-link dropdown-toggle" href="/" id="userDropdown">
-								<span className="mr-2 d-none d-lg-inline text-gray-600 small">Walter White</span>
+								<span className="mr-2 d-none d-lg-inline text-gray-600 small">enRedArte</span>
 								<img className="img-profile rounded-circle" src={Imagen} width="60" alt= "Imagen"/>
 							</a>
 						</li>
