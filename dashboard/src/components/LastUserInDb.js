@@ -1,6 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react"
-import ImagenProducto from "../assets/img/product_dummy.svg";
+//import ImagenProducto from "../assets/img/product_dummy.svg";
+import ImagenProducto from "../assets/img/user-default.jpg";
+
 
 function LastUserInDb() {
     const [ultimoUsuario, setUltimoUser] = useState([])
@@ -31,7 +33,7 @@ function LastUserInDb() {
                 </div>
                 <div className="card-body">
                     <div className="text-center">
-                        <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" height="300" width="300" align="left" src={ImagenProducto} alt="ImagenProducto" />
+                        <img className="img-fluid px-3 px-sm-4 mt-3 mb-4 rounded-circle" width="150" align="left" src={ImagenProducto} alt="ImagenProducto" />
                     </div>
                     <p></p>
                     <p>Nombre: {ultimoUsuario.nombre} </p>
